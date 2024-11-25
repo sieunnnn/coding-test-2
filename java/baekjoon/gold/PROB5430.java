@@ -1,4 +1,4 @@
-package silver;
+package gold;
 
 import java.util.*;
 import java.io.*;
