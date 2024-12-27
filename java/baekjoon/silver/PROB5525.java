@@ -3,45 +3,33 @@ package silver;
 import java.io.*;
 
 public class PROB5525 {
-    static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-
-    static int N, M;
-    static String str;
-    static String pn;
 
     public static void main(String[] args) throws IOException {
-        init();
-        System.out.println(solve());
-    }
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-    public static void init() throws IOException {
-        N = Integer.parseInt(br.readLine());
-        M = Integer.parseInt(br.readLine());
-        str = br.readLine();
-        pn = setPn(N);
-    }
+        int N = Integer.parseInt(br.readLine());
+        int M = Integer.parseInt(br.readLine());
+        String S = br.readLine();
 
-    public static String setPn(int n) {
-        StringBuilder sb = new StringBuilder();
-        sb.append("I");
-
-        for (int i = 0; i < n; i++) {
-            sb.append("O").append("I");
-        }
-
-        return sb.toString();
-    }
-
-    public static int solve() {
         int count = 0;
-        int pnLength = pn.length();
+        int i = 0;
 
-        for (int i = 0; i <= M - pnLength; i++) {
-            if (str.substring(i, i + pnLength).equals(pn)) {
-                count++;
-            }
+        while (i < M - 1) {
+            if (S.charAt(i) == 'I' && i + 2 < M && S.charAt(i + 1) == 'O' && S.charAt(i + 2) == 'I') {
+                int consecutive = 0;
+
+                while (i + 2 < M && S.charAt(i) == 'I' && S.charAt(i + 1) == 'O' && S.charAt(i + 2) == 'I') {
+                    consecutive++;
+                    i += 2;
+                }
+
+                if (consecutive >= N)
+                    count += (consecutive - N + 1);
+
+            } else
+                i++;
         }
 
-        return count;
+        System.out.println(count);
     }
 }
