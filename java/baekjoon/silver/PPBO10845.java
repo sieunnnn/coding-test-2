@@ -3,7 +3,7 @@ package silver;
 import java.io.*;
 import java.util.*;
 
-public class RPBO10845 {
+public class PPBO10845 {
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     static StringTokenizer st;
     static StringBuilder sb = new StringBuilder();
