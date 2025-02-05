@@ -4,7 +4,6 @@ import java.util.*;
 import java.io.*;
 
 public class PROB01 {
-    // 나무 공격
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     static StringTokenizer st;
 
@@ -70,5 +69,6 @@ public class PROB01 {
         }
 
         System.out.println(sum);
+
     }
 }
